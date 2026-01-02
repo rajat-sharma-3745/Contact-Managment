@@ -12,7 +12,6 @@ const contactSchema = new mongoose.Schema({
     type: String,
     required: [true, 'Email is required'],
     trim: true,
-    unique:true,
     lowercase: true,
     match: [/^\S+@\S+\.\S+$/, 'Please provide a valid email address']
   },
@@ -36,4 +35,4 @@ const contactSchema = new mongoose.Schema({
 contactSchema.index({ email: 1 });
 contactSchema.index({ createdAt: -1 });
 
-const Contact = mongoose.model('Contact', contactSchema);
+export default mongoose.model('Contact', contactSchema);
